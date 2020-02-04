@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Typing from 'react-typing-animation';
 
 function App() {
+
+  const [ sharpen, setSharpen ] = React.useState(false);
+  React.useEffect( () => {
+    const t = setTimeout( () => {
+      setSharpen(true);
+    }, 5000)
+    return () => clearTimeout(t);
+  }, [setSharpen])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className={sharpen ? "App sharpen" : "App"}>
+      <Typing>
+        <h1>We are<br/>Frontend &<br />Mobile</h1>
+        <h2>Stay tuned for more content ...</h2>
+      </Typing>
+    </main>
   );
 }
 
