@@ -25,6 +25,11 @@ const CareerFramework = () => {
         setCurrent(d)
     }
 
+    const handleClose = () => {
+        setCurrent(null);
+        setClicked(null);
+    }
+
     return (
         <section id="career-wrapper">
             <h1 className="career-header">This is our Career Framework</h1>
@@ -32,7 +37,7 @@ const CareerFramework = () => {
                 {currentOrClicked && (
                     <div className={clicked ? "current-career-item clicked" : "current-career-item"}>
                         <h2>{currentOrClicked.name}
-                            {clicked && <button onClick={() => setClicked(null)}>X</button>}
+                            {clicked && <button onClick={handleClose}>X</button>}
 
                         </h2>
                         <p>{currentOrClicked.description}</p>
