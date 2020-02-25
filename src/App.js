@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Typing from 'react-typing-animation';
+import CareerFramework from './CareerFramework/CareerFramework';
 
 function App() {
 
@@ -13,12 +14,16 @@ function App() {
   }, [setSharpen])
 
   return (
-    <main className={sharpen ? "App sharpen" : "App"}>
+    <>
+    <main className={sharpen ? "App" : "App"}>
       <Typing>
         <h1>We are<br/>Frontend &<br />Mobile</h1>
-        <h2>Stay tuned for more content ...</h2>
       </Typing>
     </main>
+    <CareerFramework />
+    </>
+
+    
   );
 }
 
